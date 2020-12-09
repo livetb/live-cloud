@@ -235,7 +235,7 @@ a, a:link, a:active, a:visited {
   margin-top: 33px 0;
 }
 
-.home-page .header .content > button {
+.home-page .header .content > .button {
   width: 174px;
   height: 45px;
   line-height: 45px;
@@ -251,7 +251,7 @@ a, a:link, a:active, a:visited {
   transition: all 0.4s ease-in-out;
 }
 
-.home-page .header .content > button:hover {
+.home-page .header .content > .button:hover {
   cursor: pointer;
   box-shadow: 0 0 3px 0 #FFF;
 }
