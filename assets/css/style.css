@@ -194,6 +194,7 @@ a, a:link, a:active, a:visited {
 }
 
 .home-page .header nav .admin {
+  display: inline-block;
   width: 110px;
   height: 40px;
   border-radius: 8px;
