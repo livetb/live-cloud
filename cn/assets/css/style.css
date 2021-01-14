@@ -88,10 +88,20 @@ a, a:link, a:active, a:visited {
 }
 
 /* ------------------------------------ Home Page ------------------------------------ */
+@media screen and (min-width: 1000px) {
+  .home-page {
+    width: 1000px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .home-page {
+    width: 100%;
+  }
+}
+
 .home-page {
   background-color: #FFF;
-  width: 1000px;
-  min-width: 1000px;
   margin: auto;
 }
 
@@ -139,11 +149,23 @@ a, a:link, a:active, a:visited {
 }
 
 .home-page .h3::before {
-  content: "———\00A0\00A0";
+  content: " ";
+  display: inline-block;
+  width: 60px;
+  height: 2px;
+  margin-bottom: 6px;
+  margin-right: 5px;
+  background-color: #33A1D2;
 }
 
 .home-page .h3::after {
-  content: "\00A0\00A0———";
+  content: " ";
+  display: inline-block;
+  width: 60px;
+  height: 2px;
+  margin-bottom: 6px;
+  margin-left: 5px;
+  background-color: #33A1D2;
 }
 
 .home-page .h4 {
@@ -168,14 +190,15 @@ a, a:link, a:active, a:visited {
 .home-page .header nav {
   width: 100%;
   height: 100px;
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
   padding: 30px 50px;
 }
 
-.home-page .header nav .menu a + a {
-  margin-left: 13px;
+.home-page .header nav .menu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(60px, 80px));
 }
 
 .home-page .header nav .menu a {
@@ -257,6 +280,17 @@ a, a:link, a:active, a:visited {
   box-shadow: 0 0 3px 0 #FFF;
 }
 
+@media screen and (max-width: 500px) {
+  .home-page .header nav {
+    height: auto;
+    padding: 20px;
+    align-items: center;
+  }
+  .home-page .content .h1 {
+    font-size: 48px;
+  }
+}
+
 .home-page .about-us {
   text-align: center;
   padding: 0 85px;
@@ -299,7 +333,7 @@ a, a:link, a:active, a:visited {
 
 .home-page .our-service .card-list {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 10px;
 }
 
@@ -371,18 +405,6 @@ a, a:link, a:active, a:visited {
   color: #33A1D2;
 }
 
-.home-page .our-service .card-list input[type=radio]:checked + .card {
-  background-color: #eef3f9;
-}
-
-.home-page .our-service .card-list input[type=radio]:checked + .card .icon {
-  box-shadow: 0 0 10px 3px #4391c1  inset;
-}
-
-.home-page .our-service .card-list input[type=radio]:checked + .card h4 {
-  color: #33A1D2;
-}
-
 .home-page .get-start {
   display: inline-block;
   font-size: 21px;
@@ -394,7 +416,7 @@ a, a:link, a:active, a:visited {
 }
 
 .home-page .get-start span {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .home-page .get-start::after {
@@ -501,13 +523,20 @@ a, a:link, a:active, a:visited {
 }
 
 .home-page .resume-wrap {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
   padding: 0 40px;
+}
+
+.home-page .resume-wrap .photo {
+  flex: 1;
 }
 
 .home-page .resume-wrap .photo img {
   width: 100%;
+}
+
+.home-page .resume-wrap .content {
+  flex: 1;
 }
 
 .home-page .resume-wrap .content .h2-big {
@@ -522,6 +551,18 @@ a, a:link, a:active, a:visited {
 
 .home-page .resume-wrap .content .get-start {
   color: #000;
+}
+
+@media screen and (max-width: 500px) {
+  .home-page .resume-wrap {
+    flex-direction: column;
+  }
+  .home-page .resume-wrap .photo {
+    order: 1;
+  }
+  .home-page .resume-wrap .content {
+    order: 2;
+  }
 }
 
 .home-page .business-partners {
@@ -562,7 +603,7 @@ a, a:link, a:active, a:visited {
 }
 
 .home-page .business-partners .data-number .number-grid .wrap .number {
-  font-size: 30px;
+  font-size: 36px;
   font-weight: 700;
   color: #10a9eb;
 }
@@ -592,17 +633,35 @@ a, a:link, a:active, a:visited {
 
 .home-page .business-partners .app-list-container {
   display: flex;
+  justify-content: center;
 }
 
 .home-page .business-partners .app-list-container .app-list {
   display: grid;
-  margin: auto;
   row-gap: 37px;
   grid-template-columns: repeat(7, 64px);
 }
 
+@media screen and (max-width: 500px) {
+  .home-page .main > * {
+    padding: 0 20px;
+  }
+  .home-page .business-partners .app-list-container .app-list {
+    grid-template-columns: repeat(5, 64px);
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .home-page .business-partners {
+    padding: 0 15px;
+  }
+  .home-page .business-partners .app-list-container .app-list {
+    grid-template-columns: repeat(3, 64px);
+  }
+}
+
 .home-page .footer {
-  height: 160px;
+  min-height: 160px;
   background-color: #1a366d;
   padding: 36px 41px 20px 58px;
   display: flex;
@@ -620,7 +679,7 @@ a, a:link, a:active, a:visited {
 }
 
 .home-page .footer .info p + p {
-  margin-top: 5px;
+  margin-top: 10px;
 }
 
 .home-page .footer .qr-code-card {
@@ -632,7 +691,13 @@ a, a:link, a:active, a:visited {
 .home-page .footer .qr-code-card .qr-code {
   max-width: 80px;
   height: 80px;
-  margin-bottom: 5px;
+  transition: all 0.4s ease-in-out;
+}
+
+.home-page .footer .qr-code-card .qr-code:hover {
+  cursor: pointer;
+  box-shadow: 0 0 2px 0 #eee;
+  transform: scale(1.6);
 }
 
 .home-page .footer .qr-code-card p {
@@ -644,4 +709,17 @@ a, a:link, a:active, a:visited {
   line-height: 14px;
   margin: 0;
   text-align: center;
+}
+
+@media screen and (max-width: 500px) {
+  .home-page .footer {
+    flex-direction: column-reverse;
+    justify-content: center;
+  }
+  .home-page .footer .qr-code-card {
+    flex-direction: column-reverse;
+  }
+  .home-page .footer .qr-code-card p {
+    margin: 15px;
+  }
 }
