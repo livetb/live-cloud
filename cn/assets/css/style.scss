@@ -264,7 +264,7 @@ a, a:link, a:active, a:visited {
 
         .card-list {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             gap: 10px;
 
             input[type=radio] {
@@ -574,6 +574,56 @@ a, a:link, a:active, a:visited {
                 display: grid;
                 row-gap: 37px;
                 grid-template-columns: repeat(7, 64px);
+            }
+
+            .app-list-new {
+                display: grid;
+                grid-template-columns: repeat(8, 50px);
+                gap: 30px;
+                .item:not(.empty) {
+                    position: relative;
+                    &::before {
+                        content: " ";
+                        display: block;
+                        width: 100%;
+                        padding-bottom: 100%;
+                    }
+                    & > * {
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                    }
+                    overflow: hidden;
+                    border-radius: 10px;
+                    box-shadow: 0 0 1px 0 rgb(209, 208, 208);
+                    transition: all 0.4s ease-in-out;
+                    img {   
+                        width: 100%;
+                        height: 100%;
+                        max-height: 100%;
+                        max-width: 100%;
+                        // filter: grayscale(100%);
+                        transition: all 0.4s ease-in-out;
+                        &:hover{
+                            cursor: pointer;
+                            filter: none;
+                        }
+                    }
+                    &:hover {
+                        transform: scale(1.05);
+                    }
+                }
+            }
+        }
+    }
+    @media screen and ( max-width: 700px) {
+        .business-partners {
+            .app-list-container .app-list-new {
+                width: 100%;
+                grid-template-columns: repeat(auto-fit, minmax(40px, 50px));
+                .empty {
+                    display: none;
+                }
             }
         }
     }

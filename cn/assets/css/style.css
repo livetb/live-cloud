@@ -333,7 +333,7 @@ a, a:link, a:active, a:visited {
 
 .home-page .our-service .card-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 10px;
 }
 
@@ -640,6 +640,60 @@ a, a:link, a:active, a:visited {
   display: grid;
   row-gap: 37px;
   grid-template-columns: repeat(7, 64px);
+}
+
+.home-page .business-partners .app-list-container .app-list-new {
+  display: grid;
+  grid-template-columns: repeat(8, 50px);
+  gap: 30px;
+}
+
+.home-page .business-partners .app-list-container .app-list-new .item:not(.empty) {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 0 1px 0 #d1d0d0;
+  transition: all 0.4s ease-in-out;
+}
+
+.home-page .business-partners .app-list-container .app-list-new .item:not(.empty)::before {
+  content: " ";
+  display: block;
+  width: 100%;
+  padding-bottom: 100%;
+}
+
+.home-page .business-partners .app-list-container .app-list-new .item:not(.empty) > * {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.home-page .business-partners .app-list-container .app-list-new .item:not(.empty) img {
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  max-width: 100%;
+  transition: all 0.4s ease-in-out;
+}
+
+.home-page .business-partners .app-list-container .app-list-new .item:not(.empty) img:hover {
+  cursor: pointer;
+  filter: none;
+}
+
+.home-page .business-partners .app-list-container .app-list-new .item:not(.empty):hover {
+  transform: scale(1.05);
+}
+
+@media screen and (max-width: 700px) {
+  .home-page .business-partners .app-list-container .app-list-new {
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(40px, 50px));
+  }
+  .home-page .business-partners .app-list-container .app-list-new .empty {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 500px) {
